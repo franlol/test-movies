@@ -3,8 +3,8 @@ import { genresReducers } from "./genres.slice";
 
 import { TGenre } from "./genres.types";
 
-export const addMovie = (movie: TGenre) => {
+export const addGenre = (genre: TGenre) => {
   return (dispatch: AppDispatch) => {
-    dispatch(genresReducers.addGenre(movie))
+    dispatch(genresReducers.addGenre(genre))
   }
 }

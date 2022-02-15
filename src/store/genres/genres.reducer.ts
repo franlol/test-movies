@@ -1,7 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { TGenre, TGenres } from "./genres.types";
 
-const moviesReducer = {
+const genresReducer = {
   addGenre: (state: TGenres, action: PayloadAction<TGenre>) => {
     state.genres.push(action.payload);
   },
@@ -10,4 +10,4 @@ const moviesReducer = {
   }
 }
 
-export default moviesReducer;
+export default genresReducer;

@@ -1,8 +1,8 @@
 import { TGenres } from "./genres.types";
 
-const moviesInitialState: TGenres = {
+const genresInitialState: TGenres = {
   genres: [],
   currentGenres: []
 }
 
-export default moviesInitialState;
+export default genresInitialState;
