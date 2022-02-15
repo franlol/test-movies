@@ -1,15 +1,15 @@
 export type TMovies = {
   isLoading: boolean;
   error: Error | null;
-  movies: Array<TMovie>
+  list: Array<TMovie>
 }
 
 export type TMovie = {
-  id: number;
+  id: string;
   title: string;
   description?: string;
-  genres: Array<TGenreId>;
+  genres?: Array<TGenreId>;
   cover?: string;
 }
 
-export type TGenreId = number;
+export type TGenreId = string;

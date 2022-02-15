@@ -1,23 +1,42 @@
 import { AppDispatch } from "../store";
-import { moviesActions } from "./movies.slice";
+import { moviesReducers } from "./movies.slice";
 import { getMovie } from "./movies.services";
 
 import { TMovie } from "./movies.types";
 
+export const addMovie = (movie: TMovie) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      dispatch(moviesReducers.setIsLoading(true));
+
+      if (movie.title && movie.id) return dispatch(moviesReducers.addMovie(movie));
+
+      throw new Error('Movie is missing information.');
+    } catch (error) {
+      console.log('Error in addMovie()', error as Error);
+
+      dispatch(moviesReducers.setError(error as Error));
+    } finally {
+      dispatch(moviesReducers.setIsLoading(false));
+    }
+  }
+}
+
+// TODO: consider fetch the movies from any db (like tmdb) to get the cover image or other real info
 export const getMovieFromApi = () => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(moviesActions.setIsLoading(true));
+      dispatch(moviesReducers.setIsLoading(true));
       const data: TMovie = await getMovie();
 
-      if (data) dispatch(moviesActions.addMovie(data));
+      if (data) dispatch(moviesReducers.addMovie(data));
 
     } catch (error) {
       console.log('Error in getMovieFromApi()', error as Error);
 
-      dispatch(moviesActions.setError(error as Error));
+      dispatch(moviesReducers.setError(error as Error));
     } finally {
-      dispatch(moviesActions.setIsLoading(false));
+      dispatch(moviesReducers.setIsLoading(false));
     }
   }
 }

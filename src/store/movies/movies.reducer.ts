@@ -3,7 +3,7 @@ import { TMovies, TMovie } from "./movies.types";
 
 const moviesReducer = {
   addMovie: (state: TMovies, action: PayloadAction<TMovie>) => {
-    state.movies.push(action.payload);
+    state.list.push(action.payload);
   },
   setIsLoading: (state: TMovies, action: PayloadAction<boolean>) => {
     state.isLoading = action.payload

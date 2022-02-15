@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import moviesReducers from './movies/movies.slice';
+import moviesSlice from './movies/movies.slice';
 
 export const store = configureStore({
   reducer: {
-    movies: moviesReducers,
+    movies: moviesSlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

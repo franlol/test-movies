@@ -9,6 +9,6 @@ const moviesSlice = createSlice({
   reducers: moviesReducer
 });
 
-export const moviesActions = moviesSlice.actions;
+export const moviesReducers = moviesSlice.actions;
 
 export default moviesSlice.reducer;
