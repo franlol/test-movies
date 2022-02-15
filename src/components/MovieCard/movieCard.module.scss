@@ -1,0 +1,13 @@
+@import "../../styles/colors";
+
+.wrapper {
+  border: 1px solid $tpmba;
+
+  & h3 {
+    margin: 0;
+  }
+}
+
+.watched {
+  border: 2px solid $tpmba;
+}

@@ -28,6 +28,12 @@ export const setSearch = (movieToSearch: string) => {
   }
 }
 
+export const setIsWatched = (id: string, isWatched: boolean) => {
+  return (dispatch: AppDispatch) => {
+    dispatch(moviesReducers.setIsWatched({ id, isWatched }))
+  }
+}
+
 // TODO: consider fetch the movies from any db (like tmdb) to get the cover image or other real info
 export const getMovieFromApi = () => {
   return async (dispatch: AppDispatch) => {

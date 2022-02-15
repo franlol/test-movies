@@ -1,9 +1,61 @@
-.form {
+@import "../../styles/colors";
+
+.wrapper {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 
-  & button {
-    border: 1px solid green
+  margin: 20px 0 30px 0;
+}
+
+.taglist {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 0px 0 30px 0;
+  padding: 0;
+
+  & li {
+    background: $blue;
+    color: yellow;
+
+    border-radius: 5px;
+    margin: 3px;
+    padding: 3px 10px;
+
+    list-style: none;
+    font-size: 12px;
+
+    & button {
+      background: transparent;
+      color: yellow;
+      font-size: 8px;
+
+      border: none;
+      margin: 0 0 2px 5px;
+    }
   }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 15px;
+
+  & input {
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 20px;
+    border: 2px solid $yellow;
+  }
+}
+
+.submitButton {
+  border: 2px solid $tpmba;
+  background-color: transparent;
+  color: $tpmba;
+  width: 300px;
+  margin: 0 auto;
+  height: 34px;
+  font-size: 16px;
 }

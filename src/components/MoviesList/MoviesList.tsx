@@ -17,7 +17,6 @@ export default function MoviesList() {
 
   return (
     <section>
-      <h2>Movies:</h2>
       {movieList
         .filter(movie => movie.genres?.includes(getIdByGenreName(genreFilter)?.toLowerCase() || '') || genreFilter === EGenreDefaults.RESET)
         .map((movie) => <MovieCard movie={movie} />)}

@@ -13,6 +13,15 @@ const moviesReducer = {
   },
   setSearch: (state: TMovies, action: PayloadAction<string>) => {
     state.search = action.payload;
+  },
+  setIsWatched: (state: TMovies, action: PayloadAction<{ id: string, isWatched: boolean }>) => {
+    const movie = state.list.find(movie => movie.id === action.payload.id);
+    if (!movie) return;
+
+    movie.isWatched = action.payload.isWatched;
+
+    state.list = state.list.filter(movie => movie.id !== action.payload.id);
+    state.list.push(movie);
   }
 }
 

@@ -20,7 +20,7 @@ export default function Form() {
   const dispatch = useDispatch();
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
-    event?.preventDefault();
+    event.preventDefault();
 
     const title = getFullTrimmedString(titleRef.current?.value);
     if (!title) return;
@@ -64,17 +64,17 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={submitHandler} className={styles.form}>
+    <form onSubmit={submitHandler} className={styles.wrapper}>
       {error && <span>{error}</span>}
-      <label htmlFor='titleInput'>
+      <label htmlFor='titleInput' className={styles.label}>
         Title: <input id='titleInput' ref={titleRef} />
       </label>
 
-      <label htmlFor='tagsInput'>
+      <label htmlFor='tagsInput' className={styles.label}>
         Tags: <input id='tagsInput' ref={tagsRef} onKeyDown={tagsKeydownHandler} />
       </label>
 
-      <ul>
+      <ul className={styles.taglist}>
         {customGenres.map(genre => {
           const currentGenre = getGenreById(genre);
           if (!currentGenre) return;
@@ -83,7 +83,7 @@ export default function Form() {
         })}
       </ul>
 
-      <button>Save Movie</button>
+      <button className={styles.submitButton}>Save Movie</button>
     </form>
   )
 }

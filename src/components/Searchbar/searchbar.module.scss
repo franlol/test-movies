@@ -1,0 +1,27 @@
+@import "../../styles/colors";
+
+.wrapper {
+  display: flex;
+  align-items: baseline;
+
+  margin: 0px auto 20px;
+
+  & input {
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    border: 2px solid $yellow;
+  }
+
+  & button {
+    width: 110px;
+    height: 24px;
+    margin: 0 auto 0 20px;
+
+    background-color: transparent;
+    color: $tpmba;
+    border: 2px solid $tpmba;
+    font-size: 16px;
+  }
+}
