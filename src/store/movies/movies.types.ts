@@ -1,7 +1,10 @@
+import { TGenreId } from "../genres/genres.types"
+
 export type TMovies = {
   isLoading: boolean;
   error: Error | null;
-  list: Array<TMovie>
+  list: Array<TMovie>;
+  search: string;
 }
 
 export type TMovie = {
@@ -10,6 +13,5 @@ export type TMovie = {
   description?: string;
   genres?: Array<TGenreId>;
   cover?: string;
+  isWatched: boolean;
 }
-
-export type TGenreId = string;

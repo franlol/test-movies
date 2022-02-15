@@ -10,6 +10,9 @@ const moviesReducer = {
   },
   setError: (state: TMovies, action: PayloadAction<Error>) => {
     state.error = action.payload;
+  },
+  setSearch: (state: TMovies, action: PayloadAction<string>) => {
+    state.search = action.payload;
   }
 }
 

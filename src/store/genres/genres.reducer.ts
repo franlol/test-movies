@@ -1,12 +1,18 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { TGenre, TGenres } from "./genres.types";
+import { EGenreDefaults, TGenre, TGenreId, TGenres } from "./genres.types";
 
 const genresReducer = {
   addGenre: (state: TGenres, action: PayloadAction<TGenre>) => {
-    state.genres.push(action.payload);
+    state.list.push(action.payload);
   },
-  addCurrentGenres: (state: TGenres, action: PayloadAction<TGenre>) => {
-    state.currentGenres.push(action.payload);
+  addCurrentGenre: (state: TGenres, action: PayloadAction<TGenreId>) => {
+    state.customGenres.push(action.payload);
+  },
+  delCurrentGenre: (state: TGenres, action: PayloadAction<TGenreId>) => {
+    state.customGenres = state.customGenres.filter(genre => genre !== action.payload)
+  },
+  updateFilter: (state: TGenres, action: PayloadAction<EGenreDefaults>) => {
+    state.filter = action.payload;
   }
 }
 

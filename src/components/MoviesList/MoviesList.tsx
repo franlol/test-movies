@@ -1,24 +1,26 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { TMovie } from '../../store/movies/movies.types';
+import { EGenreDefaults } from '../../store/genres/genres.types';
+
 import { TStore } from '../../store/store';
+import { getIdByGenreName } from '../../utils/genres.utils';
+import MovieCard from '../MovieCard/MovieCard';
 
 export default function MoviesList() {
-  const { list: moviesList } = useSelector((state: TStore) => state.movies);
+  const { list, search } = useSelector((state: TStore) => state.movies);
+  const { filter: genreFilter } = useSelector((state: TStore) => state.genres);
+
+  const movieList = useMemo(() => !!search
+    ? list.filter(movie => movie.title.includes(search))
+    : list
+    , [search, list])
 
   return (
     <section>
       <h2>Movies:</h2>
-      {moviesList.map((movie) => {
-        console.log('movie', movie)
-
-        return (
-          <article key={movie.id}>
-            <h3>title: {movie.title}</h3>
-            
-          </article>
-        )
-      })}
+      {movieList
+        .filter(movie => movie.genres?.includes(getIdByGenreName(genreFilter)?.toLowerCase() || '') || genreFilter === EGenreDefaults.RESET)
+        .map((movie) => <MovieCard movie={movie} />)}
     </section>
   )
 }

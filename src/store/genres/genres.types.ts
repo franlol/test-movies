@@ -1,9 +1,19 @@
 export type TGenres = {
-  genres: Array<TGenre>,
-  currentGenres: Array<TGenre>
+  list: Array<TGenre>,
+  customGenres: Array<string>,
+  filter: EGenreDefaults
 }
 
 export type TGenre = {
-  id: string;
+  id: TGenreId;
   name: string;
+}
+
+export type TGenreId = string;
+
+export enum EGenreDefaults {
+  HORROR = 'horror',
+  ROMANCE = 'romance',
+  COMEDY = 'comedy',
+  RESET = 'reset'
 }

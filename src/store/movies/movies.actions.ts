@@ -22,6 +22,12 @@ export const addMovie = (movie: TMovie) => {
   }
 }
 
+export const setSearch = (movieToSearch: string) => {
+  return (dispatch: AppDispatch) => {
+    dispatch(moviesReducers.setSearch(movieToSearch))
+  }
+}
+
 // TODO: consider fetch the movies from any db (like tmdb) to get the cover image or other real info
 export const getMovieFromApi = () => {
   return async (dispatch: AppDispatch) => {
