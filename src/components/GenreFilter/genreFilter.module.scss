@@ -6,4 +6,12 @@
   justify-content: space-evenly;
 
   margin-bottom: 20px;
+
+  & label {
+    cursor: pointer;
+    
+    & input {
+      cursor: pointer;
+    }
+  }
 }
