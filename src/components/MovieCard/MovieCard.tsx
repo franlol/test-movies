@@ -21,7 +21,7 @@ export default function MovieCard(props: { movie: TMovie }) {
       {movie.genres && (
         <>
           <p>Genres:</p>
-          <ul>{movie.genres.map(genre => <li key={movie.id}>{getGenreById(genre)?.name}</li>)}</ul>
+          <ul>{movie.genres.map(genre => <li key={`movieCard-genres-${movie.id}`}>{getGenreById(genre)?.name}</li>)}</ul>
         </>
       )}
     </article>

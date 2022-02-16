@@ -19,9 +19,9 @@ const moviesReducer = {
     if (!movie) return;
 
     movie.isWatched = action.payload.isWatched;
-
-    state.list = state.list.filter(movie => movie.id !== action.payload.id);
-    state.list.push(movie);
+    state.list
+      .sort((a, b) => a.title > b.title ? 1 : -1)
+      .sort((a, b) => Number(a.isWatched) - Number(b.isWatched))
   }
 }
 

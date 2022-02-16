@@ -10,16 +10,16 @@ export default function MoviesList() {
   const { list, search } = useSelector((state: TStore) => state.movies);
   const { filter: genreFilter } = useSelector((state: TStore) => state.genres);
 
-  const movieList = useMemo(() => !!search
+  const moviesList = useMemo(() => !!search
     ? list.filter(movie => movie.title.includes(search))
     : list
     , [search, list])
 
   return (
     <section>
-      {movieList
+      {moviesList
         .filter(movie => movie.genres?.includes(getIdByGenreName(genreFilter)?.toLowerCase() || '') || genreFilter === EGenreDefaults.RESET)
-        .map((movie) => <MovieCard movie={movie} />)}
+        .map((movie) => <MovieCard key={`movieList-${movie.id}`} movie={movie} />)}
     </section>
   )
 }
